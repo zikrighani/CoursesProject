@@ -1,0 +1,443 @@
+    /* ==========================================================================
+       GLOBAL STYLES
+       ========================================================================== */
+    :root {
+      --primary-color: #7c6cff;
+      --primary-light: #afa5f5;
+      --bg-dark: #000;
+      --bg-card: #181818;
+      --text-white: #fff;
+      --text-gray: #bbb;
+      --text-dark-gray: #999;
+      --border-color: rgba(255, 255, 255, 0.1);
+      --shadow: 0 2px 8px rgba(0,0,0,0.08);
+      --error-color: #ff3860;
+      --success-color: #23d160;
+      --warning-color: #ffdd57;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-white);
+      font-family: 'Inter Tight', sans-serif;
+      min-height: 100vh;
+    }
+
+    /* ==========================================================================
+       NAVIGATION
+       ========================================================================== */
+    .navbar {
+      background: rgba(0,0,0,0.95) !important;
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border-color);
+      padding: 1rem 0;
+    }
+
+    .navbar-brand {
+      font-weight: 700;
+      color: var(--text-white) !important;
+      display: flex;
+      align-items: center;
+    }
+
+    .navbar-brand img {
+      height: 40px;
+      margin-right: 10px;
+    }
+
+    .navbar-nav .nav-link {
+      color: var(--text-white) !important;
+      font-weight: 500;
+      margin: 0 10px;
+      transition: color 0.3s ease;
+    }
+
+    .navbar-nav .nav-link:hover {
+      color: var(--primary-color) !important;
+    }
+
+    .btn-logout {
+      background: linear-gradient(135deg, var(--error-color), #ff6b7d);
+      color: white;
+      border: none;
+      padding: 8px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .btn-logout:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(255, 56, 96, 0.3);
+      color: white;
+      text-decoration: none;
+    }
+
+    /* ==========================================================================
+       MAIN CONTENT
+       ========================================================================== */
+    .main-content {
+      padding: 120px 0 80px 0;
+      min-height: calc(100vh - 200px);
+    }
+
+    .page-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .page-title {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--text-white);
+      margin-bottom: 0.5rem;
+    }
+
+    .page-subtitle {
+      font-size: 1.1rem;
+      color: var(--text-gray);
+      margin-bottom: 2rem;
+    }
+
+    /* ==========================================================================
+       FORM SECTIONS
+       ========================================================================== */
+    .form-section {
+      background: var(--bg-card);
+      border-radius: 16px;
+      padding: 2rem;
+      border: 1px solid var(--border-color);
+      margin-bottom: 2rem;
+    }
+
+    .section-header {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text-white);
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .step-number {
+      background: var(--primary-color);
+      color: white;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      margin-right: 10px;
+    }
+
+    /* ==========================================================================
+       ROOM CARDS
+       ========================================================================== */
+    .room-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .room-card {
+      background: var(--bg-dark);
+      border: 2px solid var(--border-color);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .room-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--primary-color);
+      box-shadow: 0 10px 30px rgba(124, 108, 255, 0.2);
+    }
+
+    .room-card.selected {
+      border-color: var(--primary-color);
+      box-shadow: 0 0 20px rgba(124, 108, 255, 0.3);
+    }
+
+    .room-image {
+      height: 180px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    .room-details {
+      padding: 1.5rem;
+    }
+
+    .room-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-white);
+      margin-bottom: 0.5rem;
+    }
+
+    .room-description {
+      color: var(--text-gray);
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+    }
+
+    .room-features {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 1rem;
+    }
+
+    .room-features li {
+      color: var(--text-gray);
+      font-size: 0.85rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .room-features li:before {
+      content: "✓";
+      color: var(--success-color);
+      font-weight: bold;
+      margin-right: 8px;
+    }
+
+    .room-price {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+    }
+
+    .room-select-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .room-select-container input[type="radio"] {
+      margin-right: 8px;
+      accent-color: var(--primary-color);
+    }
+
+    .room-select-container label {
+      color: var(--text-white);
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    /* ==========================================================================
+       FORM CONTROLS
+       ========================================================================== */
+    .form-label {
+      color: var(--text-white);
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .form-control, .form-select {
+      background: var(--bg-dark);
+      border: 1px solid var(--border-color);
+      color: var(--text-white);
+      border-radius: 8px;
+      padding: 12px 16px;
+      transition: all 0.3s ease;
+    }
+
+    .form-control:focus, .form-select:focus {
+      background: var(--bg-dark);
+      border-color: var(--primary-color);
+      color: var(--text-white);
+      box-shadow: 0 0 0 0.2rem rgba(124, 108, 255, 0.25);
+    }
+
+    .form-control::placeholder {
+      color: var(--text-dark-gray);
+    }
+
+    .form-select option {
+      background: var(--bg-dark);
+      color: var(--text-white);
+    }
+
+    /* ==========================================================================
+       SUMMARY CARD
+       ========================================================================== */
+    .summary-card {
+      background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+      border-radius: 16px;
+      padding: 2rem;
+      color: white;
+      position: sticky;
+      top: 140px;
+    }
+
+    .summary-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.75rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .summary-row:last-child {
+      border-bottom: none;
+      margin-bottom: 1.5rem;
+    }
+
+    .summary-label {
+      font-weight: 600;
+    }
+
+    .summary-value {
+      font-weight: 500;
+    }
+
+    .summary-total {
+      font-size: 1.25rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 1.5rem;
+      padding: 1rem;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+    }
+
+    .discount-notice {
+      background: rgba(255, 221, 87, 0.2);
+      border: 1px solid rgba(255, 221, 87, 0.3);
+      border-radius: 8px;
+      padding: 0.75rem;
+      font-size: 0.85rem;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    .btn-book {
+      background: white;
+      color: var(--primary-color);
+      border: none;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-weight: 700;
+      width: 100%;
+      transition: all 0.3s ease;
+    }
+
+    .btn-book:hover {
+      background: #f8f9fa;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    /* ==========================================================================
+       ALERTS
+       ========================================================================== */
+    .alert {
+      border-radius: 8px;
+      border: none;
+      padding: 1rem 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .alert-danger {
+      background: rgba(255, 56, 96, 0.1);
+      color: var(--error-color);
+      border: 1px solid rgba(255, 56, 96, 0.3);
+    }
+
+    .alert-success {
+      background: rgba(35, 209, 96, 0.1);
+      color: var(--success-color);
+      border: 1px solid rgba(35, 209, 96, 0.3);
+    }
+
+    .btn-close {
+      filter: invert(1);
+    }
+
+    /* ==========================================================================
+       FOOTER
+       ========================================================================== */
+    .footer {
+      background: var(--bg-dark);
+      color: var(--text-gray);
+      padding: 40px 0 20px 0;
+      border-top: 1px solid var(--border-color);
+      margin-top: auto;
+      text-align: center;
+    }
+
+    .footer-buttons {
+      margin-bottom: 2rem;
+    }
+
+    .footer-buttons .btn {
+      margin: 0 0.5rem;
+      padding: 8px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .btn-secondary {
+      background: var(--bg-card);
+      color: var(--text-white);
+      border: 1px solid var(--border-color);
+    }
+
+    .btn-secondary:hover {
+      background: var(--primary-color);
+      color: white;
+      border-color: var(--primary-color);
+    }
+
+    /* ==========================================================================
+       RESPONSIVE DESIGN
+       ========================================================================== */
+    @media (max-width: 768px) {
+      .page-title {
+        font-size: 2rem;
+      }
+      
+      .room-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .form-section {
+        padding: 1.5rem;
+      }
+      
+      .summary-card {
+        position: relative;
+        top: auto;
+        margin-top: 2rem;
+      }
+      
+      .main-content {
+        padding: 100px 0 60px 0;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .page-title {
+        font-size: 1.75rem;
+      }
+      
+      .form-section {
+        padding: 1.25rem;
+      }
+      
+      .summary-card {
+        padding: 1.5rem;
+      }
+    }
